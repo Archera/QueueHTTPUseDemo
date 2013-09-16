@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
+#import "ASIHTTPRequest.h"
+#import "ASINetworkQueue.h"
+#import "ASIFormDataRequest.h"
 
-@interface ViewController : UIViewController
+#import "HttpRequest.h"
 
+@interface ViewController : UIViewController<HttpRequestDelegate>
+{
+    ASINetworkQueue *networkQueue;
+    NSMutableArray *urlStrArray;
+    HttpRequest *httpRequest;
+    NSArray *objectArray;
+}
+@property (nonatomic,retain)NSMutableArray *urlStrArray;
+@property (nonatomic,retain)NSArray *objectArray;
 @end
